@@ -1,15 +1,21 @@
-<form>
+<form action="<%= contact_submit_path %>" method="post">
   <div class="form-group">
     <label for="inputName">Name</label>
-    <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+    <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter your name">
   </div>
   <div class="form-group">
     <label for="inputEmail">Email</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter your email">
   </div>
   <div class="form-group">
     <label for="inputMessage">Message</label>
-    <textarea class="form-control" id="inputMessage" rows="4" placeholder="Enter your message"></textarea>
+    <textarea class="form-control" id="inputMessage" name="message" rows="4" placeholder="Enter your message"></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
